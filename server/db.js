@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 // TODO! change localDBName name to match your local db!!
 const localDBName = "birds";
-const { MONGODB_URI = `mongodb://localhost/${localDBName}` } = process.env;
+const { MONGODB_URI = `mongodb://127.0.0.1/${localDBName}` } = process.env;
 console.log(MONGODB_URI);
 
 // logger.info(`MONGODB_URI ${MONGODB_URI}`);
