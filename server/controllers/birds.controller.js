@@ -37,7 +37,7 @@ export const getBirds = function (req, res) {
 
 export const addBird = function (req, res) {
   const birdData = req.body;
-  logger.info(`birdData ${birdData}`);
+  //   logger.info(`birdData ${birdData}`);
   const newBird = new Bird(birdData);
   newBird.save((err, bird) => {
     if (err) return errorHandler(res, err);
@@ -61,7 +61,7 @@ export const updateBird = function (req, res) {
     if (err) return errorHandler(res, err);
     /// change the object
     // obj.save()
-    logger.info(`result ${result}`);
+    // logger.info(`result ${result}`);
     if (result.nModified === 0)
       return res.status(404).send({ message: "No bird with that ID" });
     res.sendStatus(200);
@@ -86,7 +86,7 @@ export const removeBird = function (req, res) {
   const birdId = req.params.id;
   Bird.deleteOne({ _id: birdId }, function (err, report) {
     if (err) return errorHandler(res, err);
-    logger.info(`report ${report}`);
+    // logger.info(`report ${report}`);
     if (birdId && report.deletedCount === 0) {
       return res.status(404).send({ message: "No bird with that ID" });
     }
